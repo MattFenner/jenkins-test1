@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'ecs-linux'
-    }
-    
-  }
+  agent any
   stages {
     stage('echo') {
       agent {
