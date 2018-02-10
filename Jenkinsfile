@@ -7,7 +7,7 @@ pipeline {
           agent any
           steps {
             sh 'hostname'
-            sleep 5
+            sleep 50
           }
         }
         stage('hostname2') {
