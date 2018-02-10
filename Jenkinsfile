@@ -9,7 +9,7 @@ pipeline {
     stage('echo') {
       agent {
         node {
-          label 'ecs-linux-test1'
+          label 'ecslinux'
         }
         
       }
