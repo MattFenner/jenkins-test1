@@ -1,15 +1,24 @@
 pipeline {
   agent any
   stages {
-    stage('echo') {
-      agent {
-        node {
-          label 'ec2linux'
+    stage('info') {
+      parallel {
+        stage('hostname 1') {
+          agent any
+          steps {
+            sh 'hostname'
+          }
         }
-        
-      }
-      steps {
-        sh 'echo hostname'
+        stage('hostname2') {
+          steps {
+            sh 'hostname'
+          }
+        }
+        stage('hostname 3') {
+          steps {
+            sh 'hostname'
+          }
+        }
       }
     }
   }
