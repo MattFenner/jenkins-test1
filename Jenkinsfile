@@ -2,7 +2,12 @@ pipeline {
   agent any
   stages {
     stage('echo') {
-      agent any
+      agent {
+        node {
+          label 'ecs-linux-test1'
+        }
+        
+      }
       steps {
         sh 'echo \'Hello World\''
       }
