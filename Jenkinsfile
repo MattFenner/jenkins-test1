@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'ecslinux'
+    }
+    
+  }
   stages {
     stage('info') {
       parallel {
