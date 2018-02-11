@@ -9,7 +9,12 @@ pipeline {
     stage('info') {
       parallel {
         stage('hostname 1') {
-          agent any
+          agent {
+            node {
+              label 'ecslinux'
+            }
+            
+          }
           steps {
             timeout(time: 5, unit: 'MINUTES') {
               sh 'hostname'
@@ -19,6 +24,12 @@ pipeline {
           }
         }
         stage('hostname2') {
+          agent {
+            node {
+              label 'ecslinux'
+            }
+            
+          }
           steps {
             timeout(time: 2, unit: 'MINUTES') {
               sh 'hostname'
@@ -27,6 +38,12 @@ pipeline {
           }
         }
         stage('hostname 3') {
+          agent {
+            node {
+              label 'ecslinux'
+            }
+            
+          }
           steps {
             timeout(time: 1, unit: 'MINUTES') {
               sh 'hostname'
