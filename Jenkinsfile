@@ -4,7 +4,12 @@ pipeline {
     stage('info') {
       parallel {
         stage('hostname 1') {
-          agent any
+          agent {
+            node {
+              label 'ecslinux'
+            }
+            
+          }
           steps {
             sh 'hostname'
             sleep 50
@@ -16,7 +21,12 @@ pipeline {
           }
         }
         stage('hostname2') {
-          agent any
+          agent {
+            node {
+              label 'ecslinux'
+            }
+            
+          }
           steps {
             sh 'hostname'
             writeFile(file: 'test.txt', text: 'test')
@@ -25,7 +35,12 @@ pipeline {
           }
         }
         stage('hostname 3') {
-          agent any
+          agent {
+            node {
+              label 'ecslinux'
+            }
+            
+          }
           steps {
             sh 'hostname'
             input 'continue?'
