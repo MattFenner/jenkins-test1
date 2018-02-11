@@ -21,6 +21,7 @@ pipeline {
             sh 'hostname'
             writeFile(file: 'test.txt', text: 'test')
             sleep 5
+            archiveArtifacts '.'
           }
         }
         stage('hostname 3') {
