@@ -16,11 +16,8 @@ pipeline {
             
           }
           steps {
-            timeout(time: 5, unit: 'MINUTES') {
-              sh 'hostname'
-              sleep 50
-            }
-            
+            sh 'hostname'
+            sleep 50
           }
         }
         stage('hostname2') {
@@ -31,10 +28,9 @@ pipeline {
             
           }
           steps {
-            timeout(time: 2, unit: 'MINUTES') {
-              sh 'hostname'
-            }
-            
+            sh 'hostname'
+            writeFile(file: 'test.txt', text: 'test')
+            sleep 5
           }
         }
         stage('hostname 3') {
@@ -45,10 +41,8 @@ pipeline {
             
           }
           steps {
-            timeout(time: 1, unit: 'MINUTES') {
-              sh 'hostname'
-            }
-            
+            sh 'hostname'
+            input 'continue?'
           }
         }
       }
