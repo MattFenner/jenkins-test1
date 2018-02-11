@@ -8,6 +8,11 @@ pipeline {
           steps {
             sh 'hostname'
             sleep 50
+            timeout(time: 5, unit: 'MINUTES') {
+              sh 'hostname'
+              sleep 50
+            }
+            
           }
         }
         stage('hostname2') {
